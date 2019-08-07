@@ -7,15 +7,15 @@
      this.phrase = phrase.toLowerCase();
    }
 
-   function addPhraseToDisplay() {
+   addPhraseToDisplay() {
 
    }
 
-   function checkLetter() {
+   checkLetter() {
 
    }
 
-   function showMatchedLetter() {
+   showMatchedLetter() {
 
    }
 

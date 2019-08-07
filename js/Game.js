@@ -5,31 +5,37 @@
  class Game {
    constructor(missed, phrases, activePhrase) {
      this.missed = 0;
-     this.phrases = [];
-     activePhrase = null;
+     this.phrases = [
+       'Kill Two Birds With One Stone',
+       'A Piece of Cake',
+       'Cup of Joe',
+       'In a Pickle',
+       'A fish out of water'
+     ];
+     this.activePhrase = null;
    }
 
-   function startGame() {
-
-   }
-
-   function getRandomPhrase() {
-
-   }
-
-   function handleInteraction() {
-
-   }
-
-   function removeLife() {
+   startGame() {
 
    }
 
-   function checkForWin(){
+   getRandomPhrase() {
 
    }
 
-   function gameOver() {
-     
+   handleInteraction() {
+
+   }
+
+   removeLife() {
+
+   }
+
+   checkForWin(){
+
+   }
+
+   gameOver() {
+
    }
  }
