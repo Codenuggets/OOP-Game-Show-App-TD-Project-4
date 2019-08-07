@@ -74,8 +74,8 @@
      let hearts = document.querySelectorAll('.tries img');
      // Changes liveHeart for a  lostHeart to indicate lost life
      // Also Rotates for indicator in lost life
-     // hearts[this.missed].style.WebkitTransitionDuration='1s';
-     // hearts[this.missed].style.WebkitTransform = 'rotate(360deg)';
+     hearts[this.missed].style.WebkitTransitionDuration='1s';
+     hearts[this.missed].style.WebkitTransform = 'rotate(360deg)';
      hearts[this.missed].src = "images/lostHeart.png";
      // this.missed is incremented by 1
      this.missed += 1;
