@@ -11,7 +11,11 @@
 
    // Hides the starting screen and shows the game, selects a phrase and displays it
    startGame() {
-     document.querySelector('#overlay').style.display = 'none';
+     // jQuery animates the original display overlay to fade out
+     $('#overlay').fadeOut(() =>{
+       // Once fading animation is complete, the display property is hidden
+       $('overlay').hide();
+     });
      document.querySelector('#phrase ul').innerHTML = '';
 
      //removes all assigned chosen class names
@@ -65,9 +69,13 @@
      }
  }
 
+  // Handles removing a life if the player gets a guess wrong
    removeLife() {
      let hearts = document.querySelectorAll('.tries img');
      // Changes liveHeart for a  lostHeart to indicate lost life
+     // Also Rotates for indicator in lost life
+     // hearts[this.missed].style.WebkitTransitionDuration='1s';
+     // hearts[this.missed].style.WebkitTransform = 'rotate(360deg)';
      hearts[this.missed].src = "images/lostHeart.png";
      // this.missed is incremented by 1
      this.missed += 1;
@@ -101,7 +109,11 @@
        overlay.classList.remove('start');
        overlay.classList.add('lose');
        document.querySelector('#game-over-message').innerText = 'Ooops, that was one too many, better luck next time!';
-       overlay.style.display = '';
+       $('#overlay').fadeIn(() =>{
+         // Once fading animation is complete, the display property is shown
+         // This is done to prevent the hearts from appearing alongside the gameover screen
+         $('overlay').show();
+       });
        // Resets this.missed for next game if play hits 'Play Again'
        this.missed = 0;
      } else {
@@ -109,7 +121,10 @@
        overlay.classList.remove('start');
        overlay.classList.add('win');
        document.querySelector('#game-over-message').innerText = 'Way to go!';
-       overlay.style.display = '';
+       $('#overlay').fadeIn(() =>{
+         // Once fading animation is complete, the display property is shown
+         $('overlay').show();
+       });
        // Resets this.missed for next game if play hits 'Play Again'
        this.missed = 0;
      }
