@@ -14,18 +14,19 @@
      document.querySelector('#overlay').style.display = 'none';
      document.querySelector('#phrase ul').innerHTML = '';
 
+     //removes all assigned chosen class names
      let chosen = document.querySelectorAll('.chosen');
      chosen.forEach((letter) => letter.classList.remove('chosen'));
-
+     // removes all assigned wrong class names
      let wrong = document.querySelectorAll('.wrong');
      wrong.forEach((letter) => letter.classList.remove('wrong'));
-
+     // Resets heart images
      let lostHearts = document.querySelectorAll('.tries img');
      lostHearts.forEach((heart) => heart.src = "images/liveHeart.png");
-
+     // Reables all buttons
      let buttons = document.querySelectorAll('button');
      buttons.forEach((button) => button.disabled = false);
-
+     // Grabs active phrase and adds to display
      this.activePhrase = this.getRandomPhrase();
      this.activePhrase.addPhraseToDisplay();
    }
@@ -39,19 +40,24 @@
               new Phrase('A fish out of water')]
    }
 
+   // Retrieves random phrase from this.phrases
    getRandomPhrase() {
      return this.phrases[Math.floor(Math.random() * this.phrases.length)];
    }
 
+   // Handles any button submission
    handleInteraction(button) {
+     // Checks to see if the submitted letter matches a letter in the phrase
      if(this.activePhrase.checkLetter(button.innerText)) {
        button.disabled = true;
        button.classList.add('chosen');
        this.activePhrase.showMatchedLetter(button.innerText);
+       // After all button modifications and letter is displayed, this checks if the player won
        if(this.checkForWin()){
          this.gameOver(this.checkForWin());
        };
      } else {
+       // If no letters are matched, the button is still disabled but marked wrong and a heart is removed
        button.disabled = true;
        button.classList.add('wrong');
        console.log('OUCH');
@@ -61,18 +67,22 @@
 
    removeLife() {
      let hearts = document.querySelectorAll('.tries img');
-     console.log(this.missed);
-     console.log(hearts[this.missed]);
+     // Changes liveHeart for a  lostHeart to indicate lost life
      hearts[this.missed].src = "images/lostHeart.png";
+     // this.missed is incremented by 1
      this.missed += 1;
+     // Checks to see if  any lives are remaining
      if(this.missed === 5) {
+       // If so, this.gameOver is called
        this.gameOver(this.checkForWin());
      }
 
    }
 
+   // Checks for return condition and returns a boolean value to be used in this.gameOver
    checkForWin(){
      let hiddenLetters = document.querySelectorAll('.hide');
+     // Checks all the .hide class names, if there are none left, true is returned
      if(hiddenLetters.length === 0) {
        console.log('You Win!');
        return true;
@@ -81,20 +91,26 @@
      }
    }
 
+   // Displays the 2 different game over screens based on whether the game is lost or won
    gameOver(gameWon) {
      let overlay = document.querySelector('#overlay');
+     // Checks to see if game is lost
      if(!gameWon) {
+       // If lost, display overlay is show with message showing player they lost
        console.log('You Lose!');
        overlay.classList.remove('start');
        overlay.classList.add('lose');
        document.querySelector('#game-over-message').innerText = 'Ooops, that was one too many, better luck next time!';
        overlay.style.display = '';
+       // Resets this.missed for next game if play hits 'Play Again'
        this.missed = 0;
      } else {
+       // If won, display overlay is show with message showing player they won
        overlay.classList.remove('start');
        overlay.classList.add('win');
        document.querySelector('#game-over-message').innerText = 'Way to go!';
        overlay.style.display = '';
+       // Resets this.missed for next game if play hits 'Play Again'
        this.missed = 0;
      }
    }
