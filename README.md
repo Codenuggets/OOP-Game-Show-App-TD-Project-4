@@ -34,6 +34,20 @@ Otherwise the function changes the overlay to a win screen, with the overlay bei
 After either scenario, `this.missed` is reset to zero to prepare in case the player wants to play again.
 There was a bug with the lost heart images appearing over the overlay so those image's animation values are reset as well.
 
+## Phrase.js
+This file contains the `Phrase` class that handles all the logic for the phrase object
+
+### Constructor
+* `phrase` - Initialized and turned to lower case when `Phrase` object is generated
+
+### addPhraseToDisplay()
+This function, that takes no parameters, splits the phrase into separate characters and iterates over them, adding them to page with unique classes based on whether it is a letter or space.
+
+### checkLetter(letter)
+This function takes a `letter` parameter and checks to see if this phrase object includes it and returns a boolean value based on those findings
+
+### showMatchedLetter(letter)
+This function takes a `letter` parameter, loops through the phrase and shows every instance of that letter in the phrase by removing the `hide` class and adding the `show` class.
 
 ## Additional styles
-Animations were added to the transitions between the game start and play screens, the play screen and game over screens and a rotation to help indicate a loss in life.
+Animations were added to the transitions between the game start and play screens, the play screen and game over screens and a rotation to the heart images to help indicate a loss in life.
