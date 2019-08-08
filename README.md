@@ -19,8 +19,20 @@ This function, that takes no parameters, creates an array of 5 `Phrase` objects 
 This function, that takes no parameters, returns a random phrase from `this.phrases`
 
 ### handleInteraction(button)
-This function takes a button parameters. If `this.activePhrase` contains the inputted button, the button is given a `chosen` class, disabled and the matching letter is displayed with `this.activePhrase.showMatchedLetter()`. Then it checks for a win with `this.checkForWin()`, if true `this.gameOver()` is called, if not nothing happens.
+This function takes a button parameter. If `this.activePhrase` contains the inputted button, the button is given a `chosen` class, disabled and the matching letter is displayed with `this.activePhrase.showMatchedLetter()`. Then it checks for a win with `this.checkForWin()`, if true `this.gameOver()` is called, if not nothing happens.
 If `this.activePhrase` does not contain the inputted button, the button is given a `wrong` class, disabled and `this.removeLife()` is called
+
+### removeLife()
+This function that takes no parameters. When called, this function animates the live heart image 360 degrees and changes it to a lost heart image visually indicating a loss of life to the player. Then there is a check on `this.missed` to see if the player has any lives remaining, if `this.missed` is 5, `this.gameOver()` is called
+
+### checkForWin()
+This function, that takes no parameters, checks to see how many `hide` classes are assigned on the page. The `hide` class is only assigned to letters that are still hidden, if all letters are shown, they should have a `show` class name instead. If there are no `hide` class names assigned, `true` is returned, otherwise `false is returned`
+
+### gameOver(gameWon)
+This function takes a boolean parameter, `gameWon`. The game first checks to see if `gameWon` is false, if so the overlay is given a `lose` class name and brings the overlay back with a `fadeIn` animation with jQuery. The `<h1>` element with the id `game-over-message` is updated is a message to show the player that they lost.
+Otherwise the function changes the overlay to a win screen, with the overlay being give a `win` class name and a update to `game-over-message` with a message to show the player they won.
+After either scenario, `this.missed` is reset to zero to prepare in case the player wants to play again.
+There was a bug with the lost heart images appearing over the overlay so those image's animation values are reset as well.
 
 
 ## Additional styles
