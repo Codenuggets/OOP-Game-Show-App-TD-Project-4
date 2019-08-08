@@ -30,6 +30,8 @@
      // Reables all buttons
      let buttons = document.querySelectorAll('button');
      buttons.forEach((button) => button.disabled = false);
+     //Removes win or lose class on restart
+     $('#overlay').removeClass();
      // Grabs active phrase and adds to display
      this.activePhrase = this.getRandomPhrase();
      this.activePhrase.addPhraseToDisplay();
