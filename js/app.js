@@ -25,7 +25,8 @@ keydownPage.addEventListener('keydown', (e) => {
   if(document.querySelector('#overlay').style.display) {
       //Loops through keys to make sure they match a letter and not any other keyboard input
     for(let key of keys) {
-      if(key.innerText === e.key) {
+      // Checks to see if the key is disabled or not and if a letter
+      if(key.innerText === e.key && !key.disabled) {
         game.handleInteraction(key);
       }
     }

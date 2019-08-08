@@ -66,7 +66,6 @@
        // If no letters are matched, the button is still disabled but marked wrong and a heart is removed
        button.disabled = true;
        button.classList.add('wrong');
-       console.log('OUCH');
        this.removeLife();
      }
  }
@@ -107,7 +106,6 @@
      // Checks to see if game is lost
      if(!gameWon) {
        // If lost, display overlay is show with message showing player they lost
-       console.log('You Lose!');
        overlay.classList.remove('start');
        overlay.classList.add('lose');
        document.querySelector('#game-over-message').innerText = 'Ooops, that was one too many, better luck next time!';
