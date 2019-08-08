@@ -50,4 +50,4 @@ This function takes a `letter` parameter and checks to see if this phrase object
 This function takes a `letter` parameter, loops through the phrase and shows every instance of that letter in the phrase by removing the `hide` class and adding the `show` class.
 
 ## Additional styles
-Animations were added to the transitions between the game start and play screens, the play screen and game over screens and a rotation to the heart images to help indicate a loss in life.
+Animations were added to the transitions between the game start and play screens, the play screen and game over screens and a rotation to the heart images to help indicate a loss in life. There are also borders added to the chosen letters in the display.
