@@ -9,6 +9,15 @@ This file handles the game class that handles the central game logic
 * `phrases` - Holds an array of `Phrase` objects, intialized with `this.createPhrases()`
 * `activePhrase` - Initialized as `null`. This is the phrase chosen to play in the game. The value is assigned in `startGame()` when a phrase is chosen with `this.getRandomPhrase()`
 
+### startGame()
+This function, that takes no parameters initializes the game by clearing all previous values, in the case that the game was restarted by the player, and gets the game ready by picking a random phrase with `getRandomPhrase()` and setting it to the `this.activePhrase` then displaying it with `addPhraseToDisplay()`
+
+### createPhrases()
+This function, that takes no parameters, creates an array of 5 `Phrase` objects and returns it
+
+### getRandomPhrase()
+This function, that takes no parameters, returns a random phrase from `this.phrases` 
+
 
 ## Additional styles
 Animations were added to the transitions between the game start and play screens, the play screen and game over screens and a rotation to help indicate a loss in life.
