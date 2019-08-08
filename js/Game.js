@@ -116,12 +116,6 @@
        });
        // Resets this.missed for next game if play hits 'Play Again'
        this.missed = 0;
-       //Resets hearts transition elements so that it doesn't show during gameover screen
-       $('.tries img').each((index, value) => {
-         console.log(value);
-         value.style.WebkitTransitionDuration='';
-         value.style.WebkitTransform = '';
-       });
      } else {
        // If won, display overlay is show with message showing player they won
        overlay.classList.remove('start');
@@ -133,12 +127,11 @@
        });
        // Resets this.missed for next game if play hits 'Play Again'
        this.missed = 0;
-       $('.tries img').each((index, value) => {
-         console.log(value);
-         value.style.WebkitTransitionDuration='';
-         value.style.WebkitTransform = '';
-       });
      }
-
+      //Resets hearts transition elements so that it doesn't show during gameover screen
+     $('.tries img').each((index, value) => {
+       value.style.WebkitTransitionDuration='';
+       value.style.WebkitTransform = '';
+     });
    }
  }
